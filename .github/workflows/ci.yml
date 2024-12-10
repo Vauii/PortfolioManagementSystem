@@ -1,0 +1,26 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up C++
+        uses: actions/setup-cpp@v2
+        with:
+          compiler: g++
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
+      - name: Run tests
+        run: |
+          cd build
+          ./tests/test_main

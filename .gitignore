@@ -1,0 +1,25 @@
+# build
+/build/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE config
+*.vcxproj
+*.sln
+*.user
+*.vscode/
+.idea/
+
+# logs
+*.log
+
+# system
+.DS_Store
+Thumbs.db
+
+# test data
+/tests/test_data.csv
