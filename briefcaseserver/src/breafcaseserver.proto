@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package backendservice;
+
+message DataInfo{
+    string name = 1;
+    string dateOfPurchase = 2;
+    string valueOfPurchase = 3;
+    int32 amount = 4;
+    int64 currentValue = 5;
+    int32 exponent = 6;
+    EPrediction prediction = 7;
+}
+
+message BriefcaseCSVRequest {
+    string filename = 1;          // Имя файлаs
+    bytes content = 2;            // Содержимое файла (в бинарном виде)
+}
+
+// Ответ сервиса
+message BriefcaseCSVResponse {
+    bool success = 1;             // Успешно ли завершилась операция
+    string message = 2;           // Сообщение с результатом
+}
+
+// gRPC сервис
+service PostBriefcaseService {
+    rpc addCsv (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+}
+
+service PutBriefcaseService {
+    rpc updateBreafecase (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+}
+
+enum EInfoType {
+    FULL = 0; //full info 
+    RISED = 2; //only rised 
+    FALLEN = 3; //only fallen
+}
+
+enum EPrediction {
+    STAY = 0; //it is rising more
+    SELL = 1; //time to sell 
+    UNPROFITABLE = 2; //no reason to sell 
+}
+
+message BriefcaseInfoRequest {
+    EInfoType infoType = 1;
+}
+
+message BriefcaseInfoResponse {
+    repeated DataInfo infos = 1;
+}
+
+service BriefcaseService {
+    rpc getBreifcaseInfo (BriefcaseInfoRequest) returns (BriefcaseInfoResponse);
+}
+
+message RecomendedValue {
+    string name = 1;
+    string dateOfPurchase = 2;
+    int32 amount = 3;
+    int64 value = 4;
+    int32 exponent = 5;
+}
+
+
+message RecomendedValuesRequest{
+    repeated RecomendedValue values = 1;    
+}
+
+message RecomendedValuesResponse {
+    string status = 1;
+}
+
+service PostRecomendedValuesService {
+    rpc addRecomendedValues (RecomendedValuesRequest) returns (RecomendedValuesResponse);
+}   
