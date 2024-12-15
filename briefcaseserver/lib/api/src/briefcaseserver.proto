@@ -2,6 +2,16 @@ syntax = "proto3";
 
 package backendservice;
 
+service BriefcaseService {
+    rpc postCsv (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+    
+    rpc putBreafecase (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+
+    rpc getBreifcaseInfo (BriefcaseInfoRequest) returns (BriefcaseInfoResponse);
+
+    rpc addRecomendedValues (RecomendedValuesRequest) returns (RecomendedValuesResponse);
+}
+
 message DataInfo{
     string name = 1;
     string dateOfPurchase = 2;
@@ -17,20 +27,11 @@ message BriefcaseCSVRequest {
     bytes content = 2;            // Содержимое файла (в бинарном виде)
 }
 
-// Ответ сервиса
 message BriefcaseCSVResponse {
     bool success = 1;             // Успешно ли завершилась операция
     string message = 2;           // Сообщение с результатом
 }
 
-// gRPC сервис
-service PostBriefcaseService {
-    rpc addCsv (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
-}
-
-service PutBriefcaseService {
-    rpc updateBreafecase (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
-}
 
 enum EInfoType {
     FULL = 0; //full info 
@@ -52,10 +53,6 @@ message BriefcaseInfoResponse {
     repeated DataInfo infos = 1;
 }
 
-service BriefcaseService {
-    rpc getBreifcaseInfo (BriefcaseInfoRequest) returns (BriefcaseInfoResponse);
-}
-
 message RecomendedValue {
     string name = 1;
     string dateOfPurchase = 2;
@@ -72,7 +69,3 @@ message RecomendedValuesRequest{
 message RecomendedValuesResponse {
     string status = 1;
 }
-
-service PostRecomendedValuesService {
-    rpc addRecomendedValues (RecomendedValuesRequest) returns (RecomendedValuesResponse);
-}   

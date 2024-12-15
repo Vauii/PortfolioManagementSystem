@@ -1,0 +1,7 @@
+namespace storage{
+
+    class IStorageManager {
+
+    };
+    
+}
