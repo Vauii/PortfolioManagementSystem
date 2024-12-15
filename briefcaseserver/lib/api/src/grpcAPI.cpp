@@ -1,18 +1,19 @@
 #include "briefcaseserver.grpc.pb.h"
 #include <grpcpp/grpcpp.h>
-#include "../include/grpcServer.h"
-using api_grpc::ServerGRPC;
+#include "../include/serverGRPC.h"
+#include "../include/grpcAPI.h"
+using api_grpc::BriefcaseServerGRPC;
 
 using grpc::Server;
 using grpc::ServerBuilder;
 
-ServerGRPC*             pService = nullptr;
+BriefcaseServerGRPC*             pService = nullptr;
 std::unique_ptr<Server> pServer  = nullptr;
 
 void api_grpc::runServer(const std::string&                        address,
                          std::shared_ptr<storage::IStorageManager> pStoreManager) {
     // создаем свой сервис
-    pService = new ServerGRPC(pStoreManager);
+    pService = new BriefcaseServerGRPC(pStoreManager);
 
     // создаем gRPC-шный server builder
     ServerBuilder serverBuilder;

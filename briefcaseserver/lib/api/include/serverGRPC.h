@@ -10,6 +10,9 @@ namespace api_grpc
 
 //! gRPC-server implementation
 class BriefcaseServerGRPC final : public backendservice::BriefcaseService::Service {
+
+private:
+    std::shared_ptr<storage::IStorageManager> pStoreManager;
 public:
     //! Ctor by default
     BriefcaseServerGRPC() = delete;
@@ -43,6 +46,6 @@ public:
         const backendservice::RecomendedValuesRequest* request,
         backendservice::RecomendedValuesResponse* response
     )override;
-    
+
 };
 }
