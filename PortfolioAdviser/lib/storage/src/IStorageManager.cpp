@@ -39,10 +39,12 @@ namespace storage {
             std::string stockSymbol = row[0].as<std::string>();
             int64_t priceOfPurchase = row[1].as<int64_t>(); 
             int count = row[1].as<int>();
-            
+            v->push_back({request.clientId, stockSymbol, priceOfPurchase, count});
         }
-    }
-    }
+        return v;
+    };
 
-
+    
 }
+
+

@@ -16,8 +16,6 @@ struct Value {
     std::string stockSymbol;
     std::string priceOfPurchase;
     int count;
-    int priceCurrent;
-    EPrediction prediction;
 };
 
 enum EInfoType {
