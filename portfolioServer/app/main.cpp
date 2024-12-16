@@ -1,4 +1,8 @@
 #include <grpcpp/grpcpp.h>
-#include "breafcaseserver.grpc.pb.h"
+
+
+int main() {
+    return 0;
+}
 
  

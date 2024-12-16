@@ -1,4 +1,6 @@
-#include "../src/briefcaseserver.grpc.pb.h"
+#pragma once
+
+#include "../src/portfolio.grpc.pb.h"
 #include <grpcpp/grpcpp.h>
 #include "../../storage/include/IStorageManageger.h"
 
@@ -9,36 +11,36 @@ namespace api_grpc
 {
 
 //! gRPC-server implementation
-class BriefcaseServerGRPC final : public backendservice::BriefcaseService::Service {
+class PortfolioServerGRPC final : public backendservice::PortfolioService::Service {
 
 private:
     std::shared_ptr<storage::IStorageManager> pStoreManager;
 public:
     //! Ctor by default
-    BriefcaseServerGRPC() = delete;
+    PortfolioServerGRPC() = delete;
 
     //! Constructor
-    BriefcaseServerGRPC(std::shared_ptr<storage::IStorageManager> pStoreManager);
+    PortfolioServerGRPC(std::shared_ptr<storage::IStorageManager> pStoreManager);
 
     //! Destructor
-    ~BriefcaseServerGRPC();
+    ~PortfolioServerGRPC();
 
     grpc::Status postCsv(
         grpc::ServerContext* context,
-        const backendservice::BriefcaseCSVRequest* request,
-        backendservice::BriefcaseCSVResponse* response
+        const backendservice::PortfolioCSVRequest* request,
+        backendservice::PortfolioCSVResponse* response
     ) override;
 
-    grpc::Status putBreafecase(
+    grpc::Status putPortfolio(
         grpc::ServerContext* context,
-        const backendservice::BriefcaseCSVRequest* request,
-        backendservice::BriefcaseCSVResponse* response
+        const backendservice::PortfolioCSVRequest* request,
+        backendservice::PortfolioCSVResponse* response
     )override;
 
-    grpc::Status getBreifcaseInfo(
+    grpc::Status getPortfolioInfo(
         grpc::ServerContext* context,
-        const backendservice::BriefcaseInfoRequest* request,
-        backendservice::BriefcaseInfoResponse* response
+        const backendservice::PortfolioInfoRequest* request,
+        backendservice::PortfolioInfoResponse* response
     )override;
 
     grpc::Status addRecomendedValues(
