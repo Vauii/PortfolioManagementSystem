@@ -5,25 +5,25 @@ package backendservice;
 service PortfolioService {
     rpc postCsv (PortfolioCSVRequest) returns (PortfolioCSVResponse);
     
-    rpc putBreafecase (PortfolioCSVRequest) returns (PortfolioCSVResponse);
+    rpc putPortfolio (PortfolioCSVRequest) returns (PortfolioCSVResponse);
 
-    rpc getBreifcaseInfo (PortfolioInfoRequest) returns (PortfolioInfoResponse);
+    rpc getPortfolioInfo (PortfolioInfoRequest) returns (PortfolioInfoResponse);
 
     rpc addRecomendedValues (RecomendedValuesRequest) returns (RecomendedValuesResponse);
 }
 
 message DataInfo{
-    string name = 1;
-    string dateOfPurchase = 2;
-    string priceOfPurchase = 3;
-    int32 count = 4;
-    int64 priceCurrent = 5;
-    EPrediction prediction = 6;
+    string stockSymbol = 1;
+    string priceOfPurchase = 2;
+    int32 count = 3;
+    int64 priceCurrent = 4;
+    EPrediction prediction = 5;
 }
 
 message PortfolioCSVRequest {
-    string filename = 1;          // Имя файлаs
-    bytes content = 2;            // Содержимое файла (в бинарном виде)
+    int64 id = 1;  //client id
+    string filename = 2;          // Имя файлаs
+    bytes content = 3;            // Содержимое файла (в бинарном виде)
 }
 
 message PortfolioCSVResponse {
@@ -45,7 +45,8 @@ enum EPrediction {
 }
 
 message PortfolioInfoRequest {
-    EInfoType infoType = 1;
+    int64 id = 1;//client id
+    EInfoType infoType = 2;
 }
 
 message PortfolioInfoResponse {
@@ -54,14 +55,14 @@ message PortfolioInfoResponse {
 
 message RecomendedValue {
     string name = 1;
-    string dateOfPurchase = 2;
-    int32 count = 3;
-    int64 price = 4;
+    int32 count = 2;
+    int64 price = 3;
 }
 
 
 message RecomendedValuesRequest{
-    repeated RecomendedValue values = 1;    
+    int64 id = 1; //client id
+    repeated RecomendedValue values = 2;    
 }
 
 message RecomendedValuesResponse {
