@@ -23,8 +23,8 @@ namespace backendservice {
 
 static const char* PortfolioService_method_names[] = {
   "/backendservice.PortfolioService/postCsv",
-  "/backendservice.PortfolioService/putBreafecase",
-  "/backendservice.PortfolioService/getBreifcaseInfo",
+  "/backendservice.PortfolioService/putPortfolio",
+  "/backendservice.PortfolioService/getPortfolioInfo",
   "/backendservice.PortfolioService/addRecomendedValues",
 };
 
@@ -36,8 +36,8 @@ std::unique_ptr< PortfolioService::Stub> PortfolioService::NewStub(const std::sh
 
 PortfolioService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_postCsv_(PortfolioService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_putBreafecase_(PortfolioService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_getBreifcaseInfo_(PortfolioService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_putPortfolio_(PortfolioService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getPortfolioInfo_(PortfolioService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_addRecomendedValues_(PortfolioService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
@@ -64,48 +64,48 @@ void PortfolioService::Stub::async::postCsv(::grpc::ClientContext* context, cons
   return result;
 }
 
-::grpc::Status PortfolioService::Stub::putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_putBreafecase_, context, request, response);
+::grpc::Status PortfolioService::Stub::putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_putPortfolio_, context, request, response);
 }
 
-void PortfolioService::Stub::async::putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_putBreafecase_, context, request, response, std::move(f));
+void PortfolioService::Stub::async::putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_putPortfolio_, context, request, response, std::move(f));
 }
 
-void PortfolioService::Stub::async::putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_putBreafecase_, context, request, response, reactor);
+void PortfolioService::Stub::async::putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_putPortfolio_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PortfolioService::Stub::PrepareAsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::backendservice::PortfolioCSVResponse, ::backendservice::PortfolioCSVRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_putBreafecase_, context, request);
+::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PortfolioService::Stub::PrepareAsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::backendservice::PortfolioCSVResponse, ::backendservice::PortfolioCSVRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_putPortfolio_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PortfolioService::Stub::AsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PortfolioService::Stub::AsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncputBreafecaseRaw(context, request, cq);
+    this->PrepareAsyncputPortfolioRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status PortfolioService::Stub::getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getBreifcaseInfo_, context, request, response);
+::grpc::Status PortfolioService::Stub::getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getPortfolioInfo_, context, request, response);
 }
 
-void PortfolioService::Stub::async::getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getBreifcaseInfo_, context, request, response, std::move(f));
+void PortfolioService::Stub::async::getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getPortfolioInfo_, context, request, response, std::move(f));
 }
 
-void PortfolioService::Stub::async::getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getBreifcaseInfo_, context, request, response, reactor);
+void PortfolioService::Stub::async::getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getPortfolioInfo_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PortfolioService::Stub::PrepareAsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::backendservice::PortfolioInfoResponse, ::backendservice::PortfolioInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getBreifcaseInfo_, context, request);
+::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PortfolioService::Stub::PrepareAsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::backendservice::PortfolioInfoResponse, ::backendservice::PortfolioInfoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getPortfolioInfo_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PortfolioService::Stub::AsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PortfolioService::Stub::AsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncgetBreifcaseInfoRaw(context, request, cq);
+    this->PrepareAsyncgetPortfolioInfoRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -152,7 +152,7 @@ PortfolioService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::backendservice::PortfolioCSVRequest* req,
              ::backendservice::PortfolioCSVResponse* resp) {
-               return service->putBreafecase(ctx, req, resp);
+               return service->putPortfolio(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       PortfolioService_method_names[2],
@@ -162,7 +162,7 @@ PortfolioService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::backendservice::PortfolioInfoRequest* req,
              ::backendservice::PortfolioInfoResponse* resp) {
-               return service->getBreifcaseInfo(ctx, req, resp);
+               return service->getPortfolioInfo(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       PortfolioService_method_names[3],
@@ -186,14 +186,14 @@ PortfolioService::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status PortfolioService::Service::putBreafecase(::grpc::ServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response) {
+::grpc::Status PortfolioService::Service::putPortfolio(::grpc::ServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status PortfolioService::Service::getBreifcaseInfo(::grpc::ServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response) {
+::grpc::Status PortfolioService::Service::getPortfolioInfo(::grpc::ServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response) {
   (void) context;
   (void) request;
   (void) response;

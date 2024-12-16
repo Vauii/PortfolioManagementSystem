@@ -458,9 +458,8 @@ class RecomendedValue final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kNameFieldNumber = 1,
-    kDateOfPurchaseFieldNumber = 2,
-    kPriceFieldNumber = 4,
-    kCountFieldNumber = 3,
+    kPriceFieldNumber = 3,
+    kCountFieldNumber = 2,
   };
   // string name = 1;
   void clear_name() ;
@@ -478,23 +477,7 @@ class RecomendedValue final : public ::google::protobuf::Message
   std::string* _internal_mutable_name();
 
   public:
-  // string dateOfPurchase = 2;
-  void clear_dateofpurchase() ;
-  const std::string& dateofpurchase() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_dateofpurchase(Arg_&& arg, Args_... args);
-  std::string* mutable_dateofpurchase();
-  PROTOBUF_NODISCARD std::string* release_dateofpurchase();
-  void set_allocated_dateofpurchase(std::string* value);
-
-  private:
-  const std::string& _internal_dateofpurchase() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_dateofpurchase(
-      const std::string& value);
-  std::string* _internal_mutable_dateofpurchase();
-
-  public:
-  // int64 price = 4;
+  // int64 price = 3;
   void clear_price() ;
   ::int64_t price() const;
   void set_price(::int64_t value);
@@ -504,7 +487,7 @@ class RecomendedValue final : public ::google::protobuf::Message
   void _internal_set_price(::int64_t value);
 
   public:
-  // int32 count = 3;
+  // int32 count = 2;
   void clear_count() ;
   ::int32_t count() const;
   void set_count(::int32_t value);
@@ -519,8 +502,8 @@ class RecomendedValue final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 0,
-      57, 2>
+      2, 3, 0,
+      43, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -541,7 +524,6 @@ class RecomendedValue final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const RecomendedValue& from_msg);
     ::google::protobuf::internal::ArenaStringPtr name_;
-    ::google::protobuf::internal::ArenaStringPtr dateofpurchase_;
     ::int64_t price_;
     ::int32_t count_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -676,9 +658,20 @@ class PortfolioInfoRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kInfoTypeFieldNumber = 1,
+    kIdFieldNumber = 1,
+    kInfoTypeFieldNumber = 2,
   };
-  // .backendservice.EInfoType infoType = 1;
+  // int64 id = 1;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
+  // .backendservice.EInfoType infoType = 2;
   void clear_infotype() ;
   ::backendservice::EInfoType infotype() const;
   void set_infotype(::backendservice::EInfoType value);
@@ -693,7 +686,7 @@ class PortfolioInfoRequest final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 0,
+      1, 2, 0,
       0, 2>
       _table_;
 
@@ -714,6 +707,7 @@ class PortfolioInfoRequest final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const PortfolioInfoRequest& from_msg);
+    ::int64_t id_;
     int infotype_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1036,10 +1030,11 @@ class PortfolioCSVRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kFilenameFieldNumber = 1,
-    kContentFieldNumber = 2,
+    kFilenameFieldNumber = 2,
+    kContentFieldNumber = 3,
+    kIdFieldNumber = 1,
   };
-  // string filename = 1;
+  // string filename = 2;
   void clear_filename() ;
   const std::string& filename() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1055,7 +1050,7 @@ class PortfolioCSVRequest final : public ::google::protobuf::Message
   std::string* _internal_mutable_filename();
 
   public:
-  // bytes content = 2;
+  // bytes content = 3;
   void clear_content() ;
   const std::string& content() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1071,12 +1066,22 @@ class PortfolioCSVRequest final : public ::google::protobuf::Message
   std::string* _internal_mutable_content();
 
   public:
+  // int64 id = 1;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:backendservice.PortfolioCSVRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
+      2, 3, 0,
       51, 2>
       _table_;
 
@@ -1099,6 +1104,7 @@ class PortfolioCSVRequest final : public ::google::protobuf::Message
                           const PortfolioCSVRequest& from_msg);
     ::google::protobuf::internal::ArenaStringPtr filename_;
     ::google::protobuf::internal::ArenaStringPtr content_;
+    ::int64_t id_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1231,46 +1237,29 @@ class DataInfo final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kNameFieldNumber = 1,
-    kDateOfPurchaseFieldNumber = 2,
-    kPriceOfPurchaseFieldNumber = 3,
-    kPriceCurrentFieldNumber = 5,
-    kCountFieldNumber = 4,
-    kPredictionFieldNumber = 6,
+    kStockSymbolFieldNumber = 1,
+    kPriceOfPurchaseFieldNumber = 2,
+    kPriceCurrentFieldNumber = 4,
+    kCountFieldNumber = 3,
+    kPredictionFieldNumber = 5,
   };
-  // string name = 1;
-  void clear_name() ;
-  const std::string& name() const;
+  // string stockSymbol = 1;
+  void clear_stocksymbol() ;
+  const std::string& stocksymbol() const;
   template <typename Arg_ = const std::string&, typename... Args_>
-  void set_name(Arg_&& arg, Args_... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* value);
+  void set_stocksymbol(Arg_&& arg, Args_... args);
+  std::string* mutable_stocksymbol();
+  PROTOBUF_NODISCARD std::string* release_stocksymbol();
+  void set_allocated_stocksymbol(std::string* value);
 
   private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+  const std::string& _internal_stocksymbol() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_stocksymbol(
       const std::string& value);
-  std::string* _internal_mutable_name();
+  std::string* _internal_mutable_stocksymbol();
 
   public:
-  // string dateOfPurchase = 2;
-  void clear_dateofpurchase() ;
-  const std::string& dateofpurchase() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_dateofpurchase(Arg_&& arg, Args_... args);
-  std::string* mutable_dateofpurchase();
-  PROTOBUF_NODISCARD std::string* release_dateofpurchase();
-  void set_allocated_dateofpurchase(std::string* value);
-
-  private:
-  const std::string& _internal_dateofpurchase() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_dateofpurchase(
-      const std::string& value);
-  std::string* _internal_mutable_dateofpurchase();
-
-  public:
-  // string priceOfPurchase = 3;
+  // string priceOfPurchase = 2;
   void clear_priceofpurchase() ;
   const std::string& priceofpurchase() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1286,7 +1275,7 @@ class DataInfo final : public ::google::protobuf::Message
   std::string* _internal_mutable_priceofpurchase();
 
   public:
-  // int64 priceCurrent = 5;
+  // int64 priceCurrent = 4;
   void clear_pricecurrent() ;
   ::int64_t pricecurrent() const;
   void set_pricecurrent(::int64_t value);
@@ -1296,7 +1285,7 @@ class DataInfo final : public ::google::protobuf::Message
   void _internal_set_pricecurrent(::int64_t value);
 
   public:
-  // int32 count = 4;
+  // int32 count = 3;
   void clear_count() ;
   ::int32_t count() const;
   void set_count(::int32_t value);
@@ -1306,7 +1295,7 @@ class DataInfo final : public ::google::protobuf::Message
   void _internal_set_count(::int32_t value);
 
   public:
-  // .backendservice.EPrediction prediction = 6;
+  // .backendservice.EPrediction prediction = 5;
   void clear_prediction() ;
   ::backendservice::EPrediction prediction() const;
   void set_prediction(::backendservice::EPrediction value);
@@ -1321,8 +1310,8 @@ class DataInfo final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 6, 0,
-      65, 2>
+      3, 5, 0,
+      58, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -1342,8 +1331,7 @@ class DataInfo final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const DataInfo& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr name_;
-    ::google::protobuf::internal::ArenaStringPtr dateofpurchase_;
+    ::google::protobuf::internal::ArenaStringPtr stocksymbol_;
     ::google::protobuf::internal::ArenaStringPtr priceofpurchase_;
     ::int64_t pricecurrent_;
     ::int32_t count_;
@@ -1480,9 +1468,10 @@ class RecomendedValuesRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kValuesFieldNumber = 1,
+    kValuesFieldNumber = 2,
+    kIdFieldNumber = 1,
   };
-  // repeated .backendservice.RecomendedValue values = 1;
+  // repeated .backendservice.RecomendedValue values = 2;
   int values_size() const;
   private:
   int _internal_values_size() const;
@@ -1499,12 +1488,22 @@ class RecomendedValuesRequest final : public ::google::protobuf::Message
   const ::backendservice::RecomendedValue& values(int index) const;
   ::backendservice::RecomendedValue* add_values();
   const ::google::protobuf::RepeatedPtrField<::backendservice::RecomendedValue>& values() const;
+  // int64 id = 1;
+  void clear_id() ;
+  ::int64_t id() const;
+  void set_id(::int64_t value);
+
+  private:
+  ::int64_t _internal_id() const;
+  void _internal_set_id(::int64_t value);
+
+  public:
   // @@protoc_insertion_point(class_scope:backendservice.RecomendedValuesRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 1, 1,
+      1, 2, 1,
       0, 2>
       _table_;
 
@@ -1526,6 +1525,7 @@ class RecomendedValuesRequest final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const RecomendedValuesRequest& from_msg);
     ::google::protobuf::RepeatedPtrField< ::backendservice::RecomendedValue > values_;
+    ::int64_t id_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -1727,107 +1727,57 @@ class PortfolioInfoResponse final : public ::google::protobuf::Message
 
 // DataInfo
 
-// string name = 1;
-inline void DataInfo::clear_name() {
+// string stockSymbol = 1;
+inline void DataInfo::clear_stocksymbol() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.ClearToEmpty();
+  _impl_.stocksymbol_.ClearToEmpty();
 }
-inline const std::string& DataInfo::name() const
+inline const std::string& DataInfo::stocksymbol() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:backendservice.DataInfo.name)
-  return _internal_name();
+  // @@protoc_insertion_point(field_get:backendservice.DataInfo.stockSymbol)
+  return _internal_stocksymbol();
 }
 template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void DataInfo::set_name(Arg_&& arg,
+inline PROTOBUF_ALWAYS_INLINE void DataInfo::set_stocksymbol(Arg_&& arg,
                                                      Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:backendservice.DataInfo.name)
+  _impl_.stocksymbol_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:backendservice.DataInfo.stockSymbol)
 }
-inline std::string* DataInfo::mutable_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:backendservice.DataInfo.name)
+inline std::string* DataInfo::mutable_stocksymbol() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_stocksymbol();
+  // @@protoc_insertion_point(field_mutable:backendservice.DataInfo.stockSymbol)
   return _s;
 }
-inline const std::string& DataInfo::_internal_name() const {
+inline const std::string& DataInfo::_internal_stocksymbol() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.name_.Get();
+  return _impl_.stocksymbol_.Get();
 }
-inline void DataInfo::_internal_set_name(const std::string& value) {
+inline void DataInfo::_internal_set_stocksymbol(const std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.Set(value, GetArena());
+  _impl_.stocksymbol_.Set(value, GetArena());
 }
-inline std::string* DataInfo::_internal_mutable_name() {
+inline std::string* DataInfo::_internal_mutable_stocksymbol() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.name_.Mutable( GetArena());
+  return _impl_.stocksymbol_.Mutable( GetArena());
 }
-inline std::string* DataInfo::release_name() {
+inline std::string* DataInfo::release_stocksymbol() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:backendservice.DataInfo.name)
-  return _impl_.name_.Release();
+  // @@protoc_insertion_point(field_release:backendservice.DataInfo.stockSymbol)
+  return _impl_.stocksymbol_.Release();
 }
-inline void DataInfo::set_allocated_name(std::string* value) {
+inline void DataInfo::set_allocated_stocksymbol(std::string* value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.name_.SetAllocated(value, GetArena());
+  _impl_.stocksymbol_.SetAllocated(value, GetArena());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.name_.IsDefault()) {
-          _impl_.name_.Set("", GetArena());
+        if (_impl_.stocksymbol_.IsDefault()) {
+          _impl_.stocksymbol_.Set("", GetArena());
         }
   #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:backendservice.DataInfo.name)
+  // @@protoc_insertion_point(field_set_allocated:backendservice.DataInfo.stockSymbol)
 }
 
-// string dateOfPurchase = 2;
-inline void DataInfo::clear_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.ClearToEmpty();
-}
-inline const std::string& DataInfo::dateofpurchase() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:backendservice.DataInfo.dateOfPurchase)
-  return _internal_dateofpurchase();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void DataInfo::set_dateofpurchase(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:backendservice.DataInfo.dateOfPurchase)
-}
-inline std::string* DataInfo::mutable_dateofpurchase() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_dateofpurchase();
-  // @@protoc_insertion_point(field_mutable:backendservice.DataInfo.dateOfPurchase)
-  return _s;
-}
-inline const std::string& DataInfo::_internal_dateofpurchase() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.dateofpurchase_.Get();
-}
-inline void DataInfo::_internal_set_dateofpurchase(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.Set(value, GetArena());
-}
-inline std::string* DataInfo::_internal_mutable_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.dateofpurchase_.Mutable( GetArena());
-}
-inline std::string* DataInfo::release_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:backendservice.DataInfo.dateOfPurchase)
-  return _impl_.dateofpurchase_.Release();
-}
-inline void DataInfo::set_allocated_dateofpurchase(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.dateofpurchase_.IsDefault()) {
-          _impl_.dateofpurchase_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:backendservice.DataInfo.dateOfPurchase)
-}
-
-// string priceOfPurchase = 3;
+// string priceOfPurchase = 2;
 inline void DataInfo::clear_priceofpurchase() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.priceofpurchase_.ClearToEmpty();
@@ -1877,7 +1827,7 @@ inline void DataInfo::set_allocated_priceofpurchase(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:backendservice.DataInfo.priceOfPurchase)
 }
 
-// int32 count = 4;
+// int32 count = 3;
 inline void DataInfo::clear_count() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.count_ = 0;
@@ -1899,7 +1849,7 @@ inline void DataInfo::_internal_set_count(::int32_t value) {
   _impl_.count_ = value;
 }
 
-// int64 priceCurrent = 5;
+// int64 priceCurrent = 4;
 inline void DataInfo::clear_pricecurrent() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.pricecurrent_ = ::int64_t{0};
@@ -1921,7 +1871,7 @@ inline void DataInfo::_internal_set_pricecurrent(::int64_t value) {
   _impl_.pricecurrent_ = value;
 }
 
-// .backendservice.EPrediction prediction = 6;
+// .backendservice.EPrediction prediction = 5;
 inline void DataInfo::clear_prediction() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.prediction_ = 0;
@@ -1947,7 +1897,29 @@ inline void DataInfo::_internal_set_prediction(::backendservice::EPrediction val
 
 // PortfolioCSVRequest
 
-// string filename = 1;
+// int64 id = 1;
+inline void PortfolioCSVRequest::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = ::int64_t{0};
+}
+inline ::int64_t PortfolioCSVRequest::id() const {
+  // @@protoc_insertion_point(field_get:backendservice.PortfolioCSVRequest.id)
+  return _internal_id();
+}
+inline void PortfolioCSVRequest::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:backendservice.PortfolioCSVRequest.id)
+}
+inline ::int64_t PortfolioCSVRequest::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void PortfolioCSVRequest::_internal_set_id(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// string filename = 2;
 inline void PortfolioCSVRequest::clear_filename() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.filename_.ClearToEmpty();
@@ -1997,7 +1969,7 @@ inline void PortfolioCSVRequest::set_allocated_filename(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:backendservice.PortfolioCSVRequest.filename)
 }
 
-// bytes content = 2;
+// bytes content = 3;
 inline void PortfolioCSVRequest::clear_content() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.content_.ClearToEmpty();
@@ -2127,7 +2099,29 @@ inline void PortfolioCSVResponse::set_allocated_message(std::string* value) {
 
 // PortfolioInfoRequest
 
-// .backendservice.EInfoType infoType = 1;
+// int64 id = 1;
+inline void PortfolioInfoRequest::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = ::int64_t{0};
+}
+inline ::int64_t PortfolioInfoRequest::id() const {
+  // @@protoc_insertion_point(field_get:backendservice.PortfolioInfoRequest.id)
+  return _internal_id();
+}
+inline void PortfolioInfoRequest::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:backendservice.PortfolioInfoRequest.id)
+}
+inline ::int64_t PortfolioInfoRequest::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void PortfolioInfoRequest::_internal_set_id(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// .backendservice.EInfoType infoType = 2;
 inline void PortfolioInfoRequest::clear_infotype() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.infotype_ = 0;
@@ -2256,57 +2250,7 @@ inline void RecomendedValue::set_allocated_name(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:backendservice.RecomendedValue.name)
 }
 
-// string dateOfPurchase = 2;
-inline void RecomendedValue::clear_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.ClearToEmpty();
-}
-inline const std::string& RecomendedValue::dateofpurchase() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:backendservice.RecomendedValue.dateOfPurchase)
-  return _internal_dateofpurchase();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void RecomendedValue::set_dateofpurchase(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:backendservice.RecomendedValue.dateOfPurchase)
-}
-inline std::string* RecomendedValue::mutable_dateofpurchase() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_dateofpurchase();
-  // @@protoc_insertion_point(field_mutable:backendservice.RecomendedValue.dateOfPurchase)
-  return _s;
-}
-inline const std::string& RecomendedValue::_internal_dateofpurchase() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.dateofpurchase_.Get();
-}
-inline void RecomendedValue::_internal_set_dateofpurchase(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.Set(value, GetArena());
-}
-inline std::string* RecomendedValue::_internal_mutable_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.dateofpurchase_.Mutable( GetArena());
-}
-inline std::string* RecomendedValue::release_dateofpurchase() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:backendservice.RecomendedValue.dateOfPurchase)
-  return _impl_.dateofpurchase_.Release();
-}
-inline void RecomendedValue::set_allocated_dateofpurchase(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.dateofpurchase_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.dateofpurchase_.IsDefault()) {
-          _impl_.dateofpurchase_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:backendservice.RecomendedValue.dateOfPurchase)
-}
-
-// int32 count = 3;
+// int32 count = 2;
 inline void RecomendedValue::clear_count() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.count_ = 0;
@@ -2328,7 +2272,7 @@ inline void RecomendedValue::_internal_set_count(::int32_t value) {
   _impl_.count_ = value;
 }
 
-// int64 price = 4;
+// int64 price = 3;
 inline void RecomendedValue::clear_price() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.price_ = ::int64_t{0};
@@ -2354,7 +2298,29 @@ inline void RecomendedValue::_internal_set_price(::int64_t value) {
 
 // RecomendedValuesRequest
 
-// repeated .backendservice.RecomendedValue values = 1;
+// int64 id = 1;
+inline void RecomendedValuesRequest::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = ::int64_t{0};
+}
+inline ::int64_t RecomendedValuesRequest::id() const {
+  // @@protoc_insertion_point(field_get:backendservice.RecomendedValuesRequest.id)
+  return _internal_id();
+}
+inline void RecomendedValuesRequest::set_id(::int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:backendservice.RecomendedValuesRequest.id)
+}
+inline ::int64_t RecomendedValuesRequest::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_;
+}
+inline void RecomendedValuesRequest::_internal_set_id(::int64_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_ = value;
+}
+
+// repeated .backendservice.RecomendedValue values = 2;
 inline int RecomendedValuesRequest::_internal_values_size() const {
   return _internal_values().size();
 }

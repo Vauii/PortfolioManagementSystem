@@ -42,19 +42,19 @@ class PortfolioService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>> PrepareAsyncpostCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncpostCsvRaw(context, request, cq));
     }
-    virtual ::grpc::Status putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>> AsyncputBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>>(AsyncputBreafecaseRaw(context, request, cq));
+    virtual ::grpc::Status putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>> AsyncputPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>>(AsyncputPortfolioRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>> PrepareAsyncputBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncputBreafecaseRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>> PrepareAsyncputPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncputPortfolioRaw(context, request, cq));
     }
-    virtual ::grpc::Status getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>> AsyncgetBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>>(AsyncgetBreifcaseInfoRaw(context, request, cq));
+    virtual ::grpc::Status getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>> AsyncgetPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>>(AsyncgetPortfolioInfoRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>> PrepareAsyncgetBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>>(PrepareAsyncgetBreifcaseInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>> PrepareAsyncgetPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>>(PrepareAsyncgetPortfolioInfoRaw(context, request, cq));
     }
     virtual ::grpc::Status addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::backendservice::RecomendedValuesResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::RecomendedValuesResponse>> AsyncaddRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) {
@@ -68,10 +68,10 @@ class PortfolioService final {
       virtual ~async_interface() {}
       virtual void postCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void postCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest* request, ::backendservice::RecomendedValuesResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest* request, ::backendservice::RecomendedValuesResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
@@ -81,10 +81,10 @@ class PortfolioService final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* AsyncpostCsvRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* PrepareAsyncpostCsvRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* AsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* PrepareAsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>* AsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>* PrepareAsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* AsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioCSVResponse>* PrepareAsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>* AsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::PortfolioInfoResponse>* PrepareAsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::RecomendedValuesResponse>* AsyncaddRecomendedValuesRaw(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::backendservice::RecomendedValuesResponse>* PrepareAsyncaddRecomendedValuesRaw(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -98,19 +98,19 @@ class PortfolioService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>> PrepareAsyncpostCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncpostCsvRaw(context, request, cq));
     }
-    ::grpc::Status putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>> AsyncputBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>>(AsyncputBreafecaseRaw(context, request, cq));
+    ::grpc::Status putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::backendservice::PortfolioCSVResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>> AsyncputPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>>(AsyncputPortfolioRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>> PrepareAsyncputBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncputBreafecaseRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>> PrepareAsyncputPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>>(PrepareAsyncputPortfolioRaw(context, request, cq));
     }
-    ::grpc::Status getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>> AsyncgetBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>>(AsyncgetBreifcaseInfoRaw(context, request, cq));
+    ::grpc::Status getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::backendservice::PortfolioInfoResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>> AsyncgetPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>>(AsyncgetPortfolioInfoRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>> PrepareAsyncgetBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>>(PrepareAsyncgetBreifcaseInfoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>> PrepareAsyncgetPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>>(PrepareAsyncgetPortfolioInfoRaw(context, request, cq));
     }
     ::grpc::Status addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::backendservice::RecomendedValuesResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::backendservice::RecomendedValuesResponse>> AsyncaddRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) {
@@ -124,10 +124,10 @@ class PortfolioService final {
      public:
       void postCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) override;
       void postCsv(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) override;
-      void putBreafecase(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)>) override;
-      void getBreifcaseInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, std::function<void(::grpc::Status)>) override;
+      void putPortfolio(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, std::function<void(::grpc::Status)>) override;
+      void getPortfolioInfo(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest* request, ::backendservice::RecomendedValuesResponse* response, std::function<void(::grpc::Status)>) override;
       void addRecomendedValues(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest* request, ::backendservice::RecomendedValuesResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
@@ -143,15 +143,15 @@ class PortfolioService final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* AsyncpostCsvRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PrepareAsyncpostCsvRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* AsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PrepareAsyncputBreafecaseRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* AsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PrepareAsyncgetBreifcaseInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* AsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioCSVResponse>* PrepareAsyncputPortfolioRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioCSVRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* AsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::backendservice::PortfolioInfoResponse>* PrepareAsyncgetPortfolioInfoRaw(::grpc::ClientContext* context, const ::backendservice::PortfolioInfoRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::backendservice::RecomendedValuesResponse>* AsyncaddRecomendedValuesRaw(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::backendservice::RecomendedValuesResponse>* PrepareAsyncaddRecomendedValuesRaw(::grpc::ClientContext* context, const ::backendservice::RecomendedValuesRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_postCsv_;
-    const ::grpc::internal::RpcMethod rpcmethod_putBreafecase_;
-    const ::grpc::internal::RpcMethod rpcmethod_getBreifcaseInfo_;
+    const ::grpc::internal::RpcMethod rpcmethod_putPortfolio_;
+    const ::grpc::internal::RpcMethod rpcmethod_getPortfolioInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_addRecomendedValues_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -161,8 +161,8 @@ class PortfolioService final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status postCsv(::grpc::ServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response);
-    virtual ::grpc::Status putBreafecase(::grpc::ServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response);
-    virtual ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response);
+    virtual ::grpc::Status putPortfolio(::grpc::ServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response);
+    virtual ::grpc::Status getPortfolioInfo(::grpc::ServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response);
     virtual ::grpc::Status addRecomendedValues(::grpc::ServerContext* context, const ::backendservice::RecomendedValuesRequest* request, ::backendservice::RecomendedValuesResponse* response);
   };
   template <class BaseClass>
@@ -186,42 +186,42 @@ class PortfolioService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_putBreafecase : public BaseClass {
+  class WithAsyncMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_putBreafecase() {
+    WithAsyncMethod_putPortfolio() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_putBreafecase() override {
+    ~WithAsyncMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestputBreafecase(::grpc::ServerContext* context, ::backendservice::PortfolioCSVRequest* request, ::grpc::ServerAsyncResponseWriter< ::backendservice::PortfolioCSVResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestputPortfolio(::grpc::ServerContext* context, ::backendservice::PortfolioCSVRequest* request, ::grpc::ServerAsyncResponseWriter< ::backendservice::PortfolioCSVResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_getBreifcaseInfo : public BaseClass {
+  class WithAsyncMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_getBreifcaseInfo() {
+    WithAsyncMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodAsync(2);
     }
-    ~WithAsyncMethod_getBreifcaseInfo() override {
+    ~WithAsyncMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestgetBreifcaseInfo(::grpc::ServerContext* context, ::backendservice::PortfolioInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::backendservice::PortfolioInfoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetPortfolioInfo(::grpc::ServerContext* context, ::backendservice::PortfolioInfoRequest* request, ::grpc::ServerAsyncResponseWriter< ::backendservice::PortfolioInfoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -245,7 +245,7 @@ class PortfolioService final {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_postCsv<WithAsyncMethod_putBreafecase<WithAsyncMethod_getBreifcaseInfo<WithAsyncMethod_addRecomendedValues<Service > > > > AsyncService;
+  typedef WithAsyncMethod_postCsv<WithAsyncMethod_putPortfolio<WithAsyncMethod_getPortfolioInfo<WithAsyncMethod_addRecomendedValues<Service > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_postCsv : public BaseClass {
    private:
@@ -274,57 +274,57 @@ class PortfolioService final {
       ::grpc::CallbackServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_putBreafecase : public BaseClass {
+  class WithCallbackMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_putBreafecase() {
+    WithCallbackMethod_putPortfolio() {
       ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response) { return this->putBreafecase(context, request, response); }));}
-    void SetMessageAllocatorFor_putBreafecase(
+                   ::grpc::CallbackServerContext* context, const ::backendservice::PortfolioCSVRequest* request, ::backendservice::PortfolioCSVResponse* response) { return this->putPortfolio(context, request, response); }));}
+    void SetMessageAllocatorFor_putPortfolio(
         ::grpc::MessageAllocator< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_putBreafecase() override {
+    ~WithCallbackMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* putBreafecase(
+    virtual ::grpc::ServerUnaryReactor* putPortfolio(
       ::grpc::CallbackServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_getBreifcaseInfo : public BaseClass {
+  class WithCallbackMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_getBreifcaseInfo() {
+    WithCallbackMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response) { return this->getBreifcaseInfo(context, request, response); }));}
-    void SetMessageAllocatorFor_getBreifcaseInfo(
+                   ::grpc::CallbackServerContext* context, const ::backendservice::PortfolioInfoRequest* request, ::backendservice::PortfolioInfoResponse* response) { return this->getPortfolioInfo(context, request, response); }));}
+    void SetMessageAllocatorFor_getPortfolioInfo(
         ::grpc::MessageAllocator< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_getBreifcaseInfo() override {
+    ~WithCallbackMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* getBreifcaseInfo(
+    virtual ::grpc::ServerUnaryReactor* getPortfolioInfo(
       ::grpc::CallbackServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -354,7 +354,7 @@ class PortfolioService final {
     virtual ::grpc::ServerUnaryReactor* addRecomendedValues(
       ::grpc::CallbackServerContext* /*context*/, const ::backendservice::RecomendedValuesRequest* /*request*/, ::backendservice::RecomendedValuesResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_postCsv<WithCallbackMethod_putBreafecase<WithCallbackMethod_getBreifcaseInfo<WithCallbackMethod_addRecomendedValues<Service > > > > CallbackService;
+  typedef WithCallbackMethod_postCsv<WithCallbackMethod_putPortfolio<WithCallbackMethod_getPortfolioInfo<WithCallbackMethod_addRecomendedValues<Service > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_postCsv : public BaseClass {
@@ -374,35 +374,35 @@ class PortfolioService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_putBreafecase : public BaseClass {
+  class WithGenericMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_putBreafecase() {
+    WithGenericMethod_putPortfolio() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_putBreafecase() override {
+    ~WithGenericMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_getBreifcaseInfo : public BaseClass {
+  class WithGenericMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_getBreifcaseInfo() {
+    WithGenericMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodGeneric(2);
     }
-    ~WithGenericMethod_getBreifcaseInfo() override {
+    ~WithGenericMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -445,42 +445,42 @@ class PortfolioService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_putBreafecase : public BaseClass {
+  class WithRawMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_putBreafecase() {
+    WithRawMethod_putPortfolio() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_putBreafecase() override {
+    ~WithRawMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestputBreafecase(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestputPortfolio(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_getBreifcaseInfo : public BaseClass {
+  class WithRawMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_getBreifcaseInfo() {
+    WithRawMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodRaw(2);
     }
-    ~WithRawMethod_getBreifcaseInfo() override {
+    ~WithRawMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestgetBreifcaseInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetPortfolioInfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -527,47 +527,47 @@ class PortfolioService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_putBreafecase : public BaseClass {
+  class WithRawCallbackMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_putBreafecase() {
+    WithRawCallbackMethod_putPortfolio() {
       ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putBreafecase(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->putPortfolio(context, request, response); }));
     }
-    ~WithRawCallbackMethod_putBreafecase() override {
+    ~WithRawCallbackMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* putBreafecase(
+    virtual ::grpc::ServerUnaryReactor* putPortfolio(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_getBreifcaseInfo : public BaseClass {
+  class WithRawCallbackMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_getBreifcaseInfo() {
+    WithRawCallbackMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getBreifcaseInfo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getPortfolioInfo(context, request, response); }));
     }
-    ~WithRawCallbackMethod_getBreifcaseInfo() override {
+    ~WithRawCallbackMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* getBreifcaseInfo(
+    virtual ::grpc::ServerUnaryReactor* getPortfolioInfo(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -620,58 +620,58 @@ class PortfolioService final {
     virtual ::grpc::Status StreamedpostCsv(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::PortfolioCSVRequest,::backendservice::PortfolioCSVResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_putBreafecase : public BaseClass {
+  class WithStreamedUnaryMethod_putPortfolio : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_putBreafecase() {
+    WithStreamedUnaryMethod_putPortfolio() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
           ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::backendservice::PortfolioCSVRequest, ::backendservice::PortfolioCSVResponse>* streamer) {
-                       return this->StreamedputBreafecase(context,
+                       return this->StreamedputPortfolio(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_putBreafecase() override {
+    ~WithStreamedUnaryMethod_putPortfolio() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status putBreafecase(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
+    ::grpc::Status putPortfolio(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioCSVRequest* /*request*/, ::backendservice::PortfolioCSVResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedputBreafecase(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::PortfolioCSVRequest,::backendservice::PortfolioCSVResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedputPortfolio(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::PortfolioCSVRequest,::backendservice::PortfolioCSVResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_getBreifcaseInfo : public BaseClass {
+  class WithStreamedUnaryMethod_getPortfolioInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_getBreifcaseInfo() {
+    WithStreamedUnaryMethod_getPortfolioInfo() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
           ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::backendservice::PortfolioInfoRequest, ::backendservice::PortfolioInfoResponse>* streamer) {
-                       return this->StreamedgetBreifcaseInfo(context,
+                       return this->StreamedgetPortfolioInfo(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_getBreifcaseInfo() override {
+    ~WithStreamedUnaryMethod_getPortfolioInfo() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status getBreifcaseInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
+    ::grpc::Status getPortfolioInfo(::grpc::ServerContext* /*context*/, const ::backendservice::PortfolioInfoRequest* /*request*/, ::backendservice::PortfolioInfoResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedgetBreifcaseInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::PortfolioInfoRequest,::backendservice::PortfolioInfoResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedgetPortfolioInfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::PortfolioInfoRequest,::backendservice::PortfolioInfoResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_addRecomendedValues : public BaseClass {
@@ -700,9 +700,9 @@ class PortfolioService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedaddRecomendedValues(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::backendservice::RecomendedValuesRequest,::backendservice::RecomendedValuesResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_postCsv<WithStreamedUnaryMethod_putBreafecase<WithStreamedUnaryMethod_getBreifcaseInfo<WithStreamedUnaryMethod_addRecomendedValues<Service > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_postCsv<WithStreamedUnaryMethod_putPortfolio<WithStreamedUnaryMethod_getPortfolioInfo<WithStreamedUnaryMethod_addRecomendedValues<Service > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_postCsv<WithStreamedUnaryMethod_putBreafecase<WithStreamedUnaryMethod_getBreifcaseInfo<WithStreamedUnaryMethod_addRecomendedValues<Service > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_postCsv<WithStreamedUnaryMethod_putPortfolio<WithStreamedUnaryMethod_getPortfolioInfo<WithStreamedUnaryMethod_addRecomendedValues<Service > > > > StreamedService;
 };
 
 }  // namespace backendservice

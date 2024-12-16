@@ -51,9 +51,6 @@ inline constexpr RecomendedValue::Impl_::Impl_(
       : name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        dateofpurchase_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
         price_{::int64_t{0}},
         count_{0},
         _cached_size_{0} {}
@@ -74,7 +71,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr PortfolioInfoRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : infotype_{static_cast< ::backendservice::EInfoType >(0)},
+      : id_{::int64_t{0}},
+        infotype_{static_cast< ::backendservice::EInfoType >(0)},
         _cached_size_{0} {}
 
 template <typename>
@@ -121,6 +119,7 @@ inline constexpr PortfolioCSVRequest::Impl_::Impl_(
         content_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        id_{::int64_t{0}},
         _cached_size_{0} {}
 
 template <typename>
@@ -139,10 +138,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr DataInfo::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        dateofpurchase_(
+      : stocksymbol_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         priceofpurchase_(
@@ -170,6 +166,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 inline constexpr RecomendedValuesRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : values_{},
+        id_{::int64_t{0}},
         _cached_size_{0} {}
 
 template <typename>
@@ -219,8 +216,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
-        PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.name_),
-        PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.dateofpurchase_),
+        PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.stocksymbol_),
         PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.priceofpurchase_),
         PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.count_),
         PROTOBUF_FIELD_OFFSET(::backendservice::DataInfo, _impl_.pricecurrent_),
@@ -233,6 +229,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioCSVRequest, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioCSVRequest, _impl_.filename_),
         PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioCSVRequest, _impl_.content_),
         ~0u,  // no _has_bits_
@@ -253,6 +250,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioInfoRequest, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioInfoRequest, _impl_.infotype_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::backendservice::PortfolioInfoResponse, _internal_metadata_),
@@ -272,7 +270,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValue, _impl_.name_),
-        PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValue, _impl_.dateofpurchase_),
         PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValue, _impl_.count_),
         PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValue, _impl_.price_),
         ~0u,  // no _has_bits_
@@ -283,6 +280,7 @@ const ::uint32_t
         ~0u,  // no _inlined_string_donated_
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValuesRequest, _impl_.id_),
         PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValuesRequest, _impl_.values_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::backendservice::RecomendedValuesResponse, _internal_metadata_),
@@ -298,13 +296,13 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::backendservice::DataInfo)},
-        {14, -1, -1, sizeof(::backendservice::PortfolioCSVRequest)},
+        {13, -1, -1, sizeof(::backendservice::PortfolioCSVRequest)},
         {24, -1, -1, sizeof(::backendservice::PortfolioCSVResponse)},
         {34, -1, -1, sizeof(::backendservice::PortfolioInfoRequest)},
-        {43, -1, -1, sizeof(::backendservice::PortfolioInfoResponse)},
-        {52, -1, -1, sizeof(::backendservice::RecomendedValue)},
+        {44, -1, -1, sizeof(::backendservice::PortfolioInfoResponse)},
+        {53, -1, -1, sizeof(::backendservice::RecomendedValue)},
         {64, -1, -1, sizeof(::backendservice::RecomendedValuesRequest)},
-        {73, -1, -1, sizeof(::backendservice::RecomendedValuesResponse)},
+        {74, -1, -1, sizeof(::backendservice::RecomendedValuesResponse)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::backendservice::_DataInfo_default_instance_._instance,
@@ -318,42 +316,41 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 const char descriptor_table_protodef_portfolio_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\017portfolio.proto\022\016backendservice\"\237\001\n\010Da"
-    "taInfo\022\014\n\004name\030\001 \001(\t\022\026\n\016dateOfPurchase\030\002"
-    " \001(\t\022\027\n\017priceOfPurchase\030\003 \001(\t\022\r\n\005count\030\004"
-    " \001(\005\022\024\n\014priceCurrent\030\005 \001(\003\022/\n\nprediction"
-    "\030\006 \001(\0162\033.backendservice.EPrediction\"8\n\023P"
-    "ortfolioCSVRequest\022\020\n\010filename\030\001 \001(\t\022\017\n\007"
-    "content\030\002 \001(\014\"8\n\024PortfolioCSVResponse\022\017\n"
-    "\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"C\n\024Portf"
-    "olioInfoRequest\022+\n\010infoType\030\001 \001(\0162\031.back"
-    "endservice.EInfoType\"@\n\025PortfolioInfoRes"
-    "ponse\022\'\n\005infos\030\001 \003(\0132\030.backendservice.Da"
-    "taInfo\"U\n\017RecomendedValue\022\014\n\004name\030\001 \001(\t\022"
-    "\026\n\016dateOfPurchase\030\002 \001(\t\022\r\n\005count\030\003 \001(\005\022\r"
-    "\n\005price\030\004 \001(\003\"J\n\027RecomendedValuesRequest"
-    "\022/\n\006values\030\001 \003(\0132\037.backendservice.Recome"
-    "ndedValue\"*\n\030RecomendedValuesResponse\022\016\n"
-    "\006status\030\001 \001(\t*,\n\tEInfoType\022\010\n\004FULL\020\000\022\t\n\005"
-    "RISED\020\002\022\n\n\006FALLEN\020\003*3\n\013EPrediction\022\010\n\004ST"
-    "AY\020\000\022\010\n\004SELL\020\001\022\020\n\014UNPROFITABLE\020\0022\217\003\n\020Por"
-    "tfolioService\022T\n\007postCsv\022#.backendservic"
-    "e.PortfolioCSVRequest\032$.backendservice.P"
-    "ortfolioCSVResponse\022Z\n\rputBreafecase\022#.b"
-    "ackendservice.PortfolioCSVRequest\032$.back"
-    "endservice.PortfolioCSVResponse\022_\n\020getBr"
-    "eifcaseInfo\022$.backendservice.PortfolioIn"
-    "foRequest\032%.backendservice.PortfolioInfo"
-    "Response\022h\n\023addRecomendedValues\022\'.backen"
-    "dservice.RecomendedValuesRequest\032(.backe"
-    "ndservice.RecomendedValuesResponseb\006prot"
-    "o3"
+    "\n\017portfolio.proto\022\016backendservice\"\216\001\n\010Da"
+    "taInfo\022\023\n\013stockSymbol\030\001 \001(\t\022\027\n\017priceOfPu"
+    "rchase\030\002 \001(\t\022\r\n\005count\030\003 \001(\005\022\024\n\014priceCurr"
+    "ent\030\004 \001(\003\022/\n\nprediction\030\005 \001(\0162\033.backends"
+    "ervice.EPrediction\"D\n\023PortfolioCSVReques"
+    "t\022\n\n\002id\030\001 \001(\003\022\020\n\010filename\030\002 \001(\t\022\017\n\007conte"
+    "nt\030\003 \001(\014\"8\n\024PortfolioCSVResponse\022\017\n\007succ"
+    "ess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"O\n\024PortfolioI"
+    "nfoRequest\022\n\n\002id\030\001 \001(\003\022+\n\010infoType\030\002 \001(\016"
+    "2\031.backendservice.EInfoType\"@\n\025Portfolio"
+    "InfoResponse\022\'\n\005infos\030\001 \003(\0132\030.backendser"
+    "vice.DataInfo\"=\n\017RecomendedValue\022\014\n\004name"
+    "\030\001 \001(\t\022\r\n\005count\030\002 \001(\005\022\r\n\005price\030\003 \001(\003\"V\n\027"
+    "RecomendedValuesRequest\022\n\n\002id\030\001 \001(\003\022/\n\006v"
+    "alues\030\002 \003(\0132\037.backendservice.RecomendedV"
+    "alue\"*\n\030RecomendedValuesResponse\022\016\n\006stat"
+    "us\030\001 \001(\t*,\n\tEInfoType\022\010\n\004FULL\020\000\022\t\n\005RISED"
+    "\020\002\022\n\n\006FALLEN\020\003*3\n\013EPrediction\022\010\n\004STAY\020\000\022"
+    "\010\n\004SELL\020\001\022\020\n\014UNPROFITABLE\020\0022\216\003\n\020Portfoli"
+    "oService\022T\n\007postCsv\022#.backendservice.Por"
+    "tfolioCSVRequest\032$.backendservice.Portfo"
+    "lioCSVResponse\022Y\n\014putPortfolio\022#.backend"
+    "service.PortfolioCSVRequest\032$.backendser"
+    "vice.PortfolioCSVResponse\022_\n\020getPortfoli"
+    "oInfo\022$.backendservice.PortfolioInfoRequ"
+    "est\032%.backendservice.PortfolioInfoRespon"
+    "se\022h\n\023addRecomendedValues\022\'.backendservi"
+    "ce.RecomendedValuesRequest\032(.backendserv"
+    "ice.RecomendedValuesResponseb\006proto3"
 };
 static ::absl::once_flag descriptor_table_portfolio_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_portfolio_2eproto = {
     false,
     false,
-    1162,
+    1156,
     descriptor_table_protodef_portfolio_2eproto,
     "portfolio.proto",
     &descriptor_table_portfolio_2eproto_once,
@@ -399,8 +396,7 @@ DataInfo::DataInfo(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE DataInfo::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::backendservice::DataInfo& from_msg)
-      : name_(arena, from.name_),
-        dateofpurchase_(arena, from.dateofpurchase_),
+      : stocksymbol_(arena, from.stocksymbol_),
         priceofpurchase_(arena, from.priceofpurchase_),
         _cached_size_{0} {}
 
@@ -426,8 +422,7 @@ DataInfo::DataInfo(
 inline PROTOBUF_NDEBUG_INLINE DataInfo::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : name_(arena),
-        dateofpurchase_(arena),
+      : stocksymbol_(arena),
         priceofpurchase_(arena),
         _cached_size_{0} {}
 
@@ -447,8 +442,7 @@ DataInfo::~DataInfo() {
 }
 inline void DataInfo::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
-  _impl_.name_.Destroy();
-  _impl_.dateofpurchase_.Destroy();
+  _impl_.stocksymbol_.Destroy();
   _impl_.priceofpurchase_.Destroy();
   _impl_.~Impl_();
 }
@@ -474,15 +468,15 @@ DataInfo::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 6, 0, 65, 2> DataInfo::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 0, 58, 2> DataInfo::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    6, 56,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967232,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    6,  // num_field_entries
+    5,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_DataInfo_default_instance_._instance,
@@ -493,53 +487,47 @@ const ::_pbi::TcParseTable<3, 6, 0, 65, 2> DataInfo::_table_ = {
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
     {::_pbi::TcParser::MiniParse, {}},
-    // string name = 1;
+    // string stockSymbol = 1;
     {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.name_)}},
-    // string dateOfPurchase = 2;
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.stocksymbol_)}},
+    // string priceOfPurchase = 2;
     {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.dateofpurchase_)}},
-    // string priceOfPurchase = 3;
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.priceofpurchase_)}},
-    // int32 count = 4;
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.priceofpurchase_)}},
+    // int32 count = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DataInfo, _impl_.count_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.count_)}},
-    // int64 priceCurrent = 5;
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.count_)}},
+    // int64 priceCurrent = 4;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(DataInfo, _impl_.pricecurrent_), 63>(),
-     {40, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.pricecurrent_)}},
-    // .backendservice.EPrediction prediction = 6;
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.pricecurrent_)}},
+    // .backendservice.EPrediction prediction = 5;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DataInfo, _impl_.prediction_), 63>(),
-     {48, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.prediction_)}},
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.prediction_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
-    // string name = 1;
-    {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.name_), 0, 0,
+    // string stockSymbol = 1;
+    {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.stocksymbol_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string dateOfPurchase = 2;
-    {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.dateofpurchase_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string priceOfPurchase = 3;
+    // string priceOfPurchase = 2;
     {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.priceofpurchase_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // int32 count = 4;
+    // int32 count = 3;
     {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.count_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // int64 priceCurrent = 5;
+    // int64 priceCurrent = 4;
     {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.pricecurrent_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
-    // .backendservice.EPrediction prediction = 6;
+    // .backendservice.EPrediction prediction = 5;
     {PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.prediction_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
   }},
   // no aux_entries
   {{
-    "\27\4\16\17\0\0\0\0"
+    "\27\13\17\0\0\0\0\0"
     "backendservice.DataInfo"
-    "name"
-    "dateOfPurchase"
+    "stockSymbol"
     "priceOfPurchase"
   }},
 };
@@ -551,8 +539,7 @@ PROTOBUF_NOINLINE void DataInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.name_.ClearToEmpty();
-  _impl_.dateofpurchase_.ClearToEmpty();
+  _impl_.stocksymbol_.ClearToEmpty();
   _impl_.priceofpurchase_.ClearToEmpty();
   ::memset(&_impl_.pricecurrent_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.prediction_) -
@@ -567,49 +554,41 @@ PROTOBUF_NOINLINE void DataInfo::Clear() {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // string name = 1;
-  if (!this->_internal_name().empty()) {
-    const std::string& _s = this->_internal_name();
+  // string stockSymbol = 1;
+  if (!this->_internal_stocksymbol().empty()) {
+    const std::string& _s = this->_internal_stocksymbol();
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.DataInfo.name");
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.DataInfo.stockSymbol");
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
-  // string dateOfPurchase = 2;
-  if (!this->_internal_dateofpurchase().empty()) {
-    const std::string& _s = this->_internal_dateofpurchase();
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.DataInfo.dateOfPurchase");
-    target = stream->WriteStringMaybeAliased(2, _s, target);
-  }
-
-  // string priceOfPurchase = 3;
+  // string priceOfPurchase = 2;
   if (!this->_internal_priceofpurchase().empty()) {
     const std::string& _s = this->_internal_priceofpurchase();
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
         _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.DataInfo.priceOfPurchase");
-    target = stream->WriteStringMaybeAliased(3, _s, target);
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
-  // int32 count = 4;
+  // int32 count = 3;
   if (this->_internal_count() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::
-        WriteInt32ToArrayWithField<4>(
+        WriteInt32ToArrayWithField<3>(
             stream, this->_internal_count(), target);
   }
 
-  // int64 priceCurrent = 5;
+  // int64 priceCurrent = 4;
   if (this->_internal_pricecurrent() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::
-        WriteInt64ToArrayWithField<5>(
+        WriteInt64ToArrayWithField<4>(
             stream, this->_internal_pricecurrent(), target);
   }
 
-  // .backendservice.EPrediction prediction = 6;
+  // .backendservice.EPrediction prediction = 5;
   if (this->_internal_prediction() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
-        6, this->_internal_prediction(), target);
+        5, this->_internal_prediction(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -630,37 +609,31 @@ PROTOBUF_NOINLINE void DataInfo::Clear() {
   (void) cached_has_bits;
 
   ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
-  // string name = 1;
-  if (!this->_internal_name().empty()) {
+  // string stockSymbol = 1;
+  if (!this->_internal_stocksymbol().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                    this->_internal_name());
+                                    this->_internal_stocksymbol());
   }
 
-  // string dateOfPurchase = 2;
-  if (!this->_internal_dateofpurchase().empty()) {
-    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                    this->_internal_dateofpurchase());
-  }
-
-  // string priceOfPurchase = 3;
+  // string priceOfPurchase = 2;
   if (!this->_internal_priceofpurchase().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_priceofpurchase());
   }
 
-  // int64 priceCurrent = 5;
+  // int64 priceCurrent = 4;
   if (this->_internal_pricecurrent() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
         this->_internal_pricecurrent());
   }
 
-  // int32 count = 4;
+  // int32 count = 3;
   if (this->_internal_count() != 0) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
         this->_internal_count());
   }
 
-  // .backendservice.EPrediction prediction = 6;
+  // .backendservice.EPrediction prediction = 5;
   if (this->_internal_prediction() != 0) {
     total_size += 1 +
                   ::_pbi::WireFormatLite::EnumSize(this->_internal_prediction());
@@ -678,11 +651,8 @@ void DataInfo::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_name().empty()) {
-    _this->_internal_set_name(from._internal_name());
-  }
-  if (!from._internal_dateofpurchase().empty()) {
-    _this->_internal_set_dateofpurchase(from._internal_dateofpurchase());
+  if (!from._internal_stocksymbol().empty()) {
+    _this->_internal_set_stocksymbol(from._internal_stocksymbol());
   }
   if (!from._internal_priceofpurchase().empty()) {
     _this->_internal_set_priceofpurchase(from._internal_priceofpurchase());
@@ -712,8 +682,7 @@ void DataInfo::InternalSwap(DataInfo* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.dateofpurchase_, &other->_impl_.dateofpurchase_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.stocksymbol_, &other->_impl_.stocksymbol_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.priceofpurchase_, &other->_impl_.priceofpurchase_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(DataInfo, _impl_.prediction_)
@@ -753,6 +722,7 @@ PortfolioCSVRequest::PortfolioCSVRequest(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.id_ = from._impl_.id_;
 
   // @@protoc_insertion_point(copy_constructor:backendservice.PortfolioCSVRequest)
 }
@@ -765,6 +735,7 @@ inline PROTOBUF_NDEBUG_INLINE PortfolioCSVRequest::Impl_::Impl_(
 
 inline void PortfolioCSVRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.id_ = {};
 }
 PortfolioCSVRequest::~PortfolioCSVRequest() {
   // @@protoc_insertion_point(destructor:backendservice.PortfolioCSVRequest)
@@ -799,15 +770,15 @@ PortfolioCSVRequest::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 51, 2> PortfolioCSVRequest::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 51, 2> PortfolioCSVRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_PortfolioCSVRequest_default_instance_._instance,
@@ -817,25 +788,32 @@ const ::_pbi::TcParseTable<1, 2, 0, 51, 2> PortfolioCSVRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::backendservice::PortfolioCSVRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // bytes content = 2;
-    {::_pbi::TcParser::FastBS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.content_)}},
-    // string filename = 1;
+    {::_pbi::TcParser::MiniParse, {}},
+    // int64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PortfolioCSVRequest, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.id_)}},
+    // string filename = 2;
     {::_pbi::TcParser::FastUS1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.filename_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.filename_)}},
+    // bytes content = 3;
+    {::_pbi::TcParser::FastBS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.content_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // string filename = 1;
+    // int64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // string filename = 2;
     {PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.filename_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // bytes content = 2;
+    // bytes content = 3;
     {PROTOBUF_FIELD_OFFSET(PortfolioCSVRequest, _impl_.content_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\42\10\0\0\0\0\0\0"
+    "\42\0\10\0\0\0\0\0"
     "backendservice.PortfolioCSVRequest"
     "filename"
   }},
@@ -850,6 +828,7 @@ PROTOBUF_NOINLINE void PortfolioCSVRequest::Clear() {
 
   _impl_.filename_.ClearToEmpty();
   _impl_.content_.ClearToEmpty();
+  _impl_.id_ = ::int64_t{0};
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -860,18 +839,25 @@ PROTOBUF_NOINLINE void PortfolioCSVRequest::Clear() {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // string filename = 1;
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<1>(
+            stream, this->_internal_id(), target);
+  }
+
+  // string filename = 2;
   if (!this->_internal_filename().empty()) {
     const std::string& _s = this->_internal_filename();
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
         _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.PortfolioCSVRequest.filename");
-    target = stream->WriteStringMaybeAliased(1, _s, target);
+    target = stream->WriteStringMaybeAliased(2, _s, target);
   }
 
-  // bytes content = 2;
+  // bytes content = 3;
   if (!this->_internal_content().empty()) {
     const std::string& _s = this->_internal_content();
-    target = stream->WriteBytesMaybeAliased(2, _s, target);
+    target = stream->WriteBytesMaybeAliased(3, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -892,16 +878,22 @@ PROTOBUF_NOINLINE void PortfolioCSVRequest::Clear() {
   (void) cached_has_bits;
 
   ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
-  // string filename = 1;
+  // string filename = 2;
   if (!this->_internal_filename().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                     this->_internal_filename());
   }
 
-  // bytes content = 2;
+  // bytes content = 3;
   if (!this->_internal_content().empty()) {
     total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                     this->_internal_content());
+  }
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -922,6 +914,9 @@ void PortfolioCSVRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, con
   if (!from._internal_content().empty()) {
     _this->_internal_set_content(from._internal_content());
   }
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -940,6 +935,7 @@ void PortfolioCSVRequest::InternalSwap(PortfolioCSVRequest* PROTOBUF_RESTRICT ot
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.filename_, &other->_impl_.filename_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.content_, &other->_impl_.content_, arena);
+        swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::google::protobuf::Metadata PortfolioCSVRequest::GetMetadata() const {
@@ -1186,7 +1182,12 @@ inline PROTOBUF_NDEBUG_INLINE PortfolioInfoRequest::Impl_::Impl_(
 
 inline void PortfolioInfoRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.infotype_ = {};
+  ::memset(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, id_),
+           0,
+           offsetof(Impl_, infotype_) -
+               offsetof(Impl_, id_) +
+               sizeof(Impl_::infotype_));
 }
 PortfolioInfoRequest::~PortfolioInfoRequest() {
   // @@protoc_insertion_point(destructor:backendservice.PortfolioInfoRequest)
@@ -1219,15 +1220,15 @@ PortfolioInfoRequest::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PortfolioInfoRequest::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 0, 2> PortfolioInfoRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
+    2,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_PortfolioInfoRequest_default_instance_._instance,
@@ -1237,13 +1238,19 @@ const ::_pbi::TcParseTable<0, 1, 0, 0, 2> PortfolioInfoRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::backendservice::PortfolioInfoRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .backendservice.EInfoType infoType = 1;
+    // .backendservice.EInfoType infoType = 2;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PortfolioInfoRequest, _impl_.infotype_), 63>(),
-     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.infotype_)}},
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.infotype_)}},
+    // int64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PortfolioInfoRequest, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // .backendservice.EInfoType infoType = 1;
+    // int64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // .backendservice.EInfoType infoType = 2;
     {PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.infotype_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
   }},
@@ -1259,7 +1266,9 @@ PROTOBUF_NOINLINE void PortfolioInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.infotype_ = 0;
+  ::memset(&_impl_.id_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.infotype_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.infotype_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -1270,11 +1279,18 @@ PROTOBUF_NOINLINE void PortfolioInfoRequest::Clear() {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // .backendservice.EInfoType infoType = 1;
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<1>(
+            stream, this->_internal_id(), target);
+  }
+
+  // .backendservice.EInfoType infoType = 2;
   if (this->_internal_infotype() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
-        1, this->_internal_infotype(), target);
+        2, this->_internal_infotype(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1294,7 +1310,14 @@ PROTOBUF_NOINLINE void PortfolioInfoRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .backendservice.EInfoType infoType = 1;
+  ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_id());
+  }
+
+  // .backendservice.EInfoType infoType = 2;
   if (this->_internal_infotype() != 0) {
     total_size += 1 +
                   ::_pbi::WireFormatLite::EnumSize(this->_internal_infotype());
@@ -1312,6 +1335,9 @@ void PortfolioInfoRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, co
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
   if (from._internal_infotype() != 0) {
     _this->_impl_.infotype_ = from._impl_.infotype_;
   }
@@ -1329,7 +1355,12 @@ void PortfolioInfoRequest::CopyFrom(const PortfolioInfoRequest& from) {
 void PortfolioInfoRequest::InternalSwap(PortfolioInfoRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.infotype_, other->_impl_.infotype_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.infotype_)
+      + sizeof(PortfolioInfoRequest::_impl_.infotype_)
+      - PROTOBUF_FIELD_OFFSET(PortfolioInfoRequest, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
 ::google::protobuf::Metadata PortfolioInfoRequest::GetMetadata() const {
@@ -1538,7 +1569,6 @@ inline PROTOBUF_NDEBUG_INLINE RecomendedValue::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::backendservice::RecomendedValue& from_msg)
       : name_(arena, from.name_),
-        dateofpurchase_(arena, from.dateofpurchase_),
         _cached_size_{0} {}
 
 RecomendedValue::RecomendedValue(
@@ -1564,7 +1594,6 @@ inline PROTOBUF_NDEBUG_INLINE RecomendedValue::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : name_(arena),
-        dateofpurchase_(arena),
         _cached_size_{0} {}
 
 inline void RecomendedValue::SharedCtor(::_pb::Arena* arena) {
@@ -1584,7 +1613,6 @@ RecomendedValue::~RecomendedValue() {
 inline void RecomendedValue::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.name_.Destroy();
-  _impl_.dateofpurchase_.Destroy();
   _impl_.~Impl_();
 }
 
@@ -1609,15 +1637,15 @@ RecomendedValue::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 57, 2> RecomendedValue::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 43, 2> RecomendedValue::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_RecomendedValue_default_instance_._instance,
@@ -1627,40 +1655,34 @@ const ::_pbi::TcParseTable<2, 4, 0, 57, 2> RecomendedValue::_table_ = {
     ::_pbi::TcParser::GetTable<::backendservice::RecomendedValue>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // int64 price = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(RecomendedValue, _impl_.price_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.price_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string name = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.name_)}},
-    // string dateOfPurchase = 2;
-    {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.dateofpurchase_)}},
-    // int32 count = 3;
+    // int32 count = 2;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(RecomendedValue, _impl_.count_), 63>(),
-     {24, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.count_)}},
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.count_)}},
+    // int64 price = 3;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(RecomendedValue, _impl_.price_), 63>(),
+     {24, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.price_)}},
   }}, {{
     65535, 65535
   }}, {{
     // string name = 1;
     {PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.name_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string dateOfPurchase = 2;
-    {PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.dateofpurchase_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // int32 count = 3;
+    // int32 count = 2;
     {PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.count_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
-    // int64 price = 4;
+    // int64 price = 3;
     {PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.price_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
   }},
   // no aux_entries
   {{
-    "\36\4\16\0\0\0\0\0"
+    "\36\4\0\0\0\0\0\0"
     "backendservice.RecomendedValue"
     "name"
-    "dateOfPurchase"
   }},
 };
 
@@ -1672,7 +1694,6 @@ PROTOBUF_NOINLINE void RecomendedValue::Clear() {
   (void) cached_has_bits;
 
   _impl_.name_.ClearToEmpty();
-  _impl_.dateofpurchase_.ClearToEmpty();
   ::memset(&_impl_.price_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.count_) -
       reinterpret_cast<char*>(&_impl_.price_)) + sizeof(_impl_.count_));
@@ -1694,25 +1715,17 @@ PROTOBUF_NOINLINE void RecomendedValue::Clear() {
     target = stream->WriteStringMaybeAliased(1, _s, target);
   }
 
-  // string dateOfPurchase = 2;
-  if (!this->_internal_dateofpurchase().empty()) {
-    const std::string& _s = this->_internal_dateofpurchase();
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "backendservice.RecomendedValue.dateOfPurchase");
-    target = stream->WriteStringMaybeAliased(2, _s, target);
-  }
-
-  // int32 count = 3;
+  // int32 count = 2;
   if (this->_internal_count() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::
-        WriteInt32ToArrayWithField<3>(
+        WriteInt32ToArrayWithField<2>(
             stream, this->_internal_count(), target);
   }
 
-  // int64 price = 4;
+  // int64 price = 3;
   if (this->_internal_price() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::
-        WriteInt64ToArrayWithField<4>(
+        WriteInt64ToArrayWithField<3>(
             stream, this->_internal_price(), target);
   }
 
@@ -1740,19 +1753,13 @@ PROTOBUF_NOINLINE void RecomendedValue::Clear() {
                                     this->_internal_name());
   }
 
-  // string dateOfPurchase = 2;
-  if (!this->_internal_dateofpurchase().empty()) {
-    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                    this->_internal_dateofpurchase());
-  }
-
-  // int64 price = 4;
+  // int64 price = 3;
   if (this->_internal_price() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
         this->_internal_price());
   }
 
-  // int32 count = 3;
+  // int32 count = 2;
   if (this->_internal_count() != 0) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
         this->_internal_count());
@@ -1772,9 +1779,6 @@ void RecomendedValue::MergeImpl(::google::protobuf::MessageLite& to_msg, const :
 
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
-  }
-  if (!from._internal_dateofpurchase().empty()) {
-    _this->_internal_set_dateofpurchase(from._internal_dateofpurchase());
   }
   if (from._internal_price() != 0) {
     _this->_impl_.price_ = from._impl_.price_;
@@ -1799,7 +1803,6 @@ void RecomendedValue::InternalSwap(RecomendedValue* PROTOBUF_RESTRICT other) {
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.dateofpurchase_, &other->_impl_.dateofpurchase_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RecomendedValue, _impl_.count_)
       + sizeof(RecomendedValue::_impl_.count_)
@@ -1837,6 +1840,7 @@ RecomendedValuesRequest::RecomendedValuesRequest(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.id_ = from._impl_.id_;
 
   // @@protoc_insertion_point(copy_constructor:backendservice.RecomendedValuesRequest)
 }
@@ -1848,6 +1852,7 @@ inline PROTOBUF_NDEBUG_INLINE RecomendedValuesRequest::Impl_::Impl_(
 
 inline void RecomendedValuesRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.id_ = {};
 }
 RecomendedValuesRequest::~RecomendedValuesRequest() {
   // @@protoc_insertion_point(destructor:backendservice.RecomendedValuesRequest)
@@ -1880,15 +1885,15 @@ RecomendedValuesRequest::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 1, 1, 0, 2> RecomendedValuesRequest::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2> RecomendedValuesRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    1, 0,  // max_field_number, fast_idx_mask
+    2, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967294,  // skipmap
+    4294967292,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    1,  // num_field_entries
+    2,  // num_field_entries
     1,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     &_RecomendedValuesRequest_default_instance_._instance,
@@ -1898,13 +1903,19 @@ const ::_pbi::TcParseTable<0, 1, 1, 0, 2> RecomendedValuesRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::backendservice::RecomendedValuesRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // repeated .backendservice.RecomendedValue values = 1;
+    // repeated .backendservice.RecomendedValue values = 2;
     {::_pbi::TcParser::FastMtR1,
-     {10, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValuesRequest, _impl_.values_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValuesRequest, _impl_.values_)}},
+    // int64 id = 1;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(RecomendedValuesRequest, _impl_.id_), 63>(),
+     {8, 63, 0, PROTOBUF_FIELD_OFFSET(RecomendedValuesRequest, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
-    // repeated .backendservice.RecomendedValue values = 1;
+    // int64 id = 1;
+    {PROTOBUF_FIELD_OFFSET(RecomendedValuesRequest, _impl_.id_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kInt64)},
+    // repeated .backendservice.RecomendedValue values = 2;
     {PROTOBUF_FIELD_OFFSET(RecomendedValuesRequest, _impl_.values_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }}, {{
@@ -1921,6 +1932,7 @@ PROTOBUF_NOINLINE void RecomendedValuesRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.values_.Clear();
+  _impl_.id_ = ::int64_t{0};
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -1931,14 +1943,21 @@ PROTOBUF_NOINLINE void RecomendedValuesRequest::Clear() {
   ::uint32_t cached_has_bits = 0;
   (void)cached_has_bits;
 
-  // repeated .backendservice.RecomendedValue values = 1;
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::
+        WriteInt64ToArrayWithField<1>(
+            stream, this->_internal_id(), target);
+  }
+
+  // repeated .backendservice.RecomendedValue values = 2;
   for (unsigned i = 0, n = static_cast<unsigned>(
                            this->_internal_values_size());
        i < n; i++) {
     const auto& repfield = this->_internal_values().Get(i);
     target =
         ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
-            1, repfield, repfield.GetCachedSize(),
+            2, repfield, repfield.GetCachedSize(),
             target, stream);
   }
 
@@ -1960,11 +1979,17 @@ PROTOBUF_NOINLINE void RecomendedValuesRequest::Clear() {
   (void) cached_has_bits;
 
   ::_pbi::Prefetch5LinesFrom7Lines(reinterpret_cast<const void*>(this));
-  // repeated .backendservice.RecomendedValue values = 1;
+  // repeated .backendservice.RecomendedValue values = 2;
   total_size += 1UL * this->_internal_values_size();
   for (const auto& msg : this->_internal_values()) {
     total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
   }
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+        this->_internal_id());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1979,6 +2004,9 @@ void RecomendedValuesRequest::MergeImpl(::google::protobuf::MessageLite& to_msg,
 
   _this->_internal_mutable_values()->MergeFrom(
       from._internal_values());
+  if (from._internal_id() != 0) {
+    _this->_impl_.id_ = from._impl_.id_;
+  }
   _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1994,6 +2022,7 @@ void RecomendedValuesRequest::InternalSwap(RecomendedValuesRequest* PROTOBUF_RES
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.values_.InternalSwap(&other->_impl_.values_);
+        swap(_impl_.id_, other->_impl_.id_);
 }
 
 ::google::protobuf::Metadata RecomendedValuesRequest::GetMetadata() const {
