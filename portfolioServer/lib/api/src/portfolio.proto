@@ -2,12 +2,12 @@ syntax = "proto3";
 
 package backendservice;
 
-service BriefcaseService {
-    rpc postCsv (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+service PortfolioService {
+    rpc postCsv (PortfolioCSVRequest) returns (PortfolioCSVResponse);
     
-    rpc putBreafecase (BriefcaseCSVRequest) returns (BriefcaseCSVResponse);
+    rpc putBreafecase (PortfolioCSVRequest) returns (PortfolioCSVResponse);
 
-    rpc getBreifcaseInfo (BriefcaseInfoRequest) returns (BriefcaseInfoResponse);
+    rpc getBreifcaseInfo (PortfolioInfoRequest) returns (PortfolioInfoResponse);
 
     rpc addRecomendedValues (RecomendedValuesRequest) returns (RecomendedValuesResponse);
 }
@@ -15,19 +15,18 @@ service BriefcaseService {
 message DataInfo{
     string name = 1;
     string dateOfPurchase = 2;
-    string valueOfPurchase = 3;
-    int32 amount = 4;
-    int64 currentValue = 5;
-    int32 exponent = 6;
-    EPrediction prediction = 7;
+    string priceOfPurchase = 3;
+    int32 count = 4;
+    int64 priceCurrent = 5;
+    EPrediction prediction = 6;
 }
 
-message BriefcaseCSVRequest {
+message PortfolioCSVRequest {
     string filename = 1;          // Имя файлаs
     bytes content = 2;            // Содержимое файла (в бинарном виде)
 }
 
-message BriefcaseCSVResponse {
+message PortfolioCSVResponse {
     bool success = 1;             // Успешно ли завершилась операция
     string message = 2;           // Сообщение с результатом
 }
@@ -45,20 +44,19 @@ enum EPrediction {
     UNPROFITABLE = 2; //no reason to sell 
 }
 
-message BriefcaseInfoRequest {
+message PortfolioInfoRequest {
     EInfoType infoType = 1;
 }
 
-message BriefcaseInfoResponse {
+message PortfolioInfoResponse {
     repeated DataInfo infos = 1;
 }
 
 message RecomendedValue {
     string name = 1;
     string dateOfPurchase = 2;
-    int32 amount = 3;
-    int64 value = 4;
-    int32 exponent = 5;
+    int32 count = 3;
+    int64 price = 4;
 }
 
 
