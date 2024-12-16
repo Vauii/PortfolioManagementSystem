@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package portfolio;
+
+service PortfolioBuilder {
+    // The client calls this method to build a portfolio
+    rpc BuildPortfolio (PortfolioRequest) returns (PortfolioResponse);
+
+    // Another service calls this method to save the builded portfolio
+    rpc SendPortfolioToStorage (StorageRequest) returns (StorageResponse);
+}
+
+message PortfolioRequest {
+    string clientId = 1;
+}
+
+message PortfolioResponse {
+    string clientId = 1;
+    repeated PortfolioEntry entries = 2;
+}
+
+message PortfolioEntry {
+    string stockSymbol = 1;
+    int32 count = 2; // Number of stocks of this type in the portfolio
+    int64 price = 3; // Stock price
+}
+
+message StorageRequest {
+    string clientId = 1;
+}
+
+message StorageResponse {
+    bool success = 1;
+    string message = 2;
+}
